@@ -6,7 +6,7 @@ on:
       version:
         description: Release version
         required: false
-        default: v0.1.3
+        default: v0.1.4
 
 permissions:
   contents: write
@@ -34,7 +34,7 @@ jobs:
         run: python -m PyInstaller --clean --noconfirm --distpath "$env:GITHUB_WORKSPACE\dist" GestureControl.spec
       - name: Rename
         shell: pwsh
-        run: Rename-Item "dist\GestureControl.exe" "HandPilot.exe"
+        run: Rename-Item "dist\HandPilot.exe" "HandPilot.exe"
       - uses: actions/upload-artifact@v4
         with:
           name: HandPilot-windows
@@ -61,7 +61,7 @@ jobs:
         working-directory: source
         run: python -m PyInstaller --clean --noconfirm --distpath "$GITHUB_WORKSPACE/dist" GestureControl.spec
       - name: Package
-        run: tar -czf HandPilot-linux-x86_64.tar.gz -C dist GestureControl
+        run: tar -czf HandPilot-linux-x86_64.tar.gz -C dist HandPilot
       - uses: actions/upload-artifact@v4
         with:
           name: HandPilot-linux
