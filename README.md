@@ -6,7 +6,7 @@ by GitHub Actions; this repository contains distribution files only.
 
 ## Latest release
 
-Download [HandPilot v0.1.1](https://github.com/hollo-hub/HandPilot-downloads/releases/tag/v0.1.1):
+Download [HandPilot v0.1.2](https://github.com/hollo-hub/HandPilot-downloads/releases/tag/v0.1.2):
 
 - **Windows:** `HandPilot.exe`
 - **Linux x86_64:** `HandPilot-linux-x86_64.tar.gz`
