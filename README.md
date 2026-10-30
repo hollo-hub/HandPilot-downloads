@@ -13,8 +13,8 @@ are built from the existing [HandPilot source repository](https://github.com/hol
 Extract the archive, open a terminal in the extracted folder, and run:
 
 ```bash
-chmod +x GestureControl
-./GestureControl
+chmod +x HandPilot
+./HandPilot
 ```
 
 Running from a terminal is recommended for the first launch because it shows
