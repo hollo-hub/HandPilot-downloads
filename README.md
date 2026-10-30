@@ -3,10 +3,10 @@
 HandPilot is a local-first webcam gesture controller by hollo-hub. Releases
 are built from the existing [HandPilot source repository](https://github.com/hollo-hub/HandPilot).
 
-## Latest: v0.1.3
+## Latest: v0.1.4
 
-- [Windows HandPilot.exe](https://github.com/hollo-hub/HandPilot-downloads/releases/download/v0.1.3/HandPilot.exe)
-- [Linux x86_64 tarball](https://github.com/hollo-hub/HandPilot-downloads/releases/download/v0.1.3/HandPilot-linux-x86_64.tar.gz)
+- [Windows HandPilot.exe](https://github.com/hollo-hub/HandPilot-downloads/releases/download/v0.1.4/HandPilot.exe)
+- [Linux x86_64 tarball](https://github.com/hollo-hub/HandPilot-downloads/releases/download/v0.1.4/HandPilot-linux-x86_64.tar.gz)
 
 ### Linux launch
 
