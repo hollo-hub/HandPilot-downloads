@@ -1,30 +1,35 @@
 # HandPilot Downloads
 
 HandPilot is a local-first webcam gesture controller by hollo-hub. Releases
-are built from the existing [HandPilot source repository](https://github.com/hollo-hub/HandPilot)
-by GitHub Actions; this repository contains distribution files only.
+are built from the existing [HandPilot source repository](https://github.com/hollo-hub/HandPilot).
 
-## Latest release
+## Latest: v0.1.3
 
-Download [HandPilot v0.1.2](https://github.com/hollo-hub/HandPilot-downloads/releases/tag/v0.1.2):
+- [Windows HandPilot.exe](https://github.com/hollo-hub/HandPilot-downloads/releases/download/v0.1.3/HandPilot.exe)
+- [Linux x86_64 tarball](https://github.com/hollo-hub/HandPilot-downloads/releases/download/v0.1.3/HandPilot-linux-x86_64.tar.gz)
 
-- **Windows:** `HandPilot.exe`
-- **Linux x86_64:** `HandPilot-linux-x86_64.tar.gz`
+### Linux launch
 
-### Windows
+Extract the archive, open a terminal in the extracted folder, and run:
+
+```bash
+chmod +x GestureControl
+./GestureControl
+```
+
+Running from a terminal is recommended for the first launch because it shows
+any platform or camera error. The Linux build targets x86_64 graphical Linux.
+On X11, `pynput` needs `DISPLAY`; on Wayland, input injection may be limited by
+the compositor. The app opens before loading input actions and reports startup
+errors visibly.
+
+### Windows launch
 
 Download `HandPilot.exe`, allow camera access, and press **Start tracking**.
 Windows SmartScreen may warn because this unsigned community build is new.
 
-### Linux
+### Feedback
 
-Extract the tarball and run the `GestureControl` executable from a graphical
-Linux desktop session. A webcam is required. On X11, set `DISPLAY` normally;
-on Wayland, input injection can be limited by the compositor. The Linux build
-is x86_64 and is not a Debian/RPM package.
-
-## Testing feedback
-
-Please report the OS, desktop session, webcam, whether the preview appeared,
-the gesture attempted, the action observed, and any exact error text in the
-source repository issues.
+Report OS, desktop session, webcam, whether the window opened, whether the
+preview appeared, the gesture attempted, the action observed, and exact error
+text in the [source repository issues](https://github.com/hollo-hub/HandPilot/issues).
