@@ -1,1 +1,44 @@
-name: Build and publish HandPilot\n\non:\n  workflow_dispatch:\n    inputs:\n      version:\n        description: Release version\n        required: false\n        default: v0.1.0\n\npermissions:\n  contents: write\n\njobs:\n  build:\n    runs-on: windows-latest\n    steps:\n      - name: Checkout downloads repo\n        uses: actions/checkout@v4\n      - name: Checkout HandPilot source\n        uses: actions/checkout@v4\n        with:\n          repository: hollo-hub/HandPilot\n          path: source\n      - uses: actions/setup-python@v5\n        with:\n          python-version: "3.11"\n      - name: Install source dependencies\n        working-directory: source\n        run: python -m pip install -e ".[test,windows,build]"\n      - name: Test source\n        working-directory: source\n        run: python -m pytest\n      - name: Build Windows executable\n        working-directory: source\n        run: python -m PyInstaller --clean --noconfirm --distpath "$env:GITHUB_WORKSPACE\\dist" GestureControl.spec\n      - name: Rename executable\n        shell: pwsh\n        run: Rename-Item "dist\\GestureControl.exe" "HandPilot.exe"\n      - name: Publish release\n        shell: pwsh\n        env:\n          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}\n        run: gh release create "${{ inputs.version }}" dist/HandPilot.exe --repo "${{ github.repository }}" --title "HandPilot ${{ inputs.version }}" --notes "Windows release of HandPilot. See README for gesture controls and testing feedback."\n
+name: Build and publish HandPilot
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: Release version
+        required: false
+        default: v0.1.0
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout downloads repo
+        uses: actions/checkout@v4
+      - name: Checkout HandPilot source
+        uses: actions/checkout@v4
+        with:
+          repository: hollo-hub/HandPilot
+          path: source
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install source dependencies
+        working-directory: source
+        run: python -m pip install -e ".[test,windows,build]"
+      - name: Test source
+        working-directory: source
+        run: python -m pytest
+      - name: Build Windows executable
+        working-directory: source
+        run: python -m PyInstaller --clean --noconfirm --distpath "$env:GITHUB_WORKSPACE\dist" GestureControl.spec
+      - name: Rename executable
+        shell: pwsh
+        run: Rename-Item "dist\GestureControl.exe" "HandPilot.exe"
+      - name: Publish release
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh release create "${{ inputs.version }}" dist/HandPilot.exe --repo "${{ github.repository }}" --title "HandPilot ${{ inputs.version }}" --notes "Windows release of HandPilot. See README for gesture controls and testing feedback."
