@@ -1,21 +1,30 @@
 # HandPilot Downloads
 
-HandPilot is a local-first Windows webcam gesture controller by hollo-hub.
+HandPilot is a local-first webcam gesture controller by hollo-hub. Releases
+are built from the existing [HandPilot source repository](https://github.com/hollo-hub/HandPilot)
+by GitHub Actions; this repository contains distribution files only.
 
-## Download
+## Latest release
 
-Download the latest Windows executable from the [Releases page](https://github.com/hollo-hub/HandPilot-downloads/releases/latest).
+Download [HandPilot v0.1.1](https://github.com/hollo-hub/HandPilot-downloads/releases/tag/v0.1.1):
 
-1. Download `HandPilot.exe`.
-2. Windows may show a SmartScreen warning for a new unsigned app; choose **More info** then **Run anyway** only if you trust this release.
-3. Allow camera access when Windows asks.
-4. Press **Start tracking** in the app.
+- **Windows:** `HandPilot.exe`
+- **Linux x86_64:** `HandPilot-linux-x86_64.tar.gz`
 
-## Gestures in this build
+### Windows
 
-- Move hand up/down: scroll
-- Open palm: media play/pause
-- Pinch: volume up
-- Swipe left/right: browser back/forward
+Download `HandPilot.exe`, allow camera access, and press **Start tracking**.
+Windows SmartScreen may warn because this unsigned community build is new.
 
-Please report Windows version, webcam model, which gestures worked, and any error text in the [HandPilot source repository](https://github.com/hollo-hub/HandPilot/issues).
+### Linux
+
+Extract the tarball and run the `GestureControl` executable from a graphical
+Linux desktop session. A webcam is required. On X11, set `DISPLAY` normally;
+on Wayland, input injection can be limited by the compositor. The Linux build
+is x86_64 and is not a Debian/RPM package.
+
+## Testing feedback
+
+Please report the OS, desktop session, webcam, whether the preview appeared,
+the gesture attempted, the action observed, and any exact error text in the
+source repository issues.
